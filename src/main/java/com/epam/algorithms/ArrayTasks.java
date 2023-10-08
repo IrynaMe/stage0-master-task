@@ -1,7 +1,6 @@
 package com.epam.algorithms;
 
 
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Here are the tasks for working with the arrays.

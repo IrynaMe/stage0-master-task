@@ -1,8 +1,6 @@
 package com.epam.algorithms;
 
 
-import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * Here are the tasks for working with the arrays.
@@ -137,13 +135,45 @@ public class ArrayTasks {
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        Comparator<int[]> innerArrayComparator = (a, b) -> Integer.compare(a.length, b.length);
-        Arrays.sort(arr, innerArrayComparator);
+        sortOuter(arr);
         for (int[] innerArray : arr) {
-            Arrays.sort(innerArray);
+            sortInner(innerArray);
         }
-
         return arr;
+    }
+
+    private void sortOuter(int[][] arr) {
+        int n = arr.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 1; i < n; i++) {
+                if (arr[i - 1].length > arr[i].length) {
+                    int[] temp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                    swapped = true;
+                }
+            }
+            n--;
+        } while (swapped);
+    }
+
+    private void sortInner(int[] innerArray) {
+        int n = innerArray.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 1; i < n; i++) {
+                if (innerArray[i - 1] > innerArray[i]) {
+                    int temp = innerArray[i - 1];
+                    innerArray[i - 1] = innerArray[i];
+                    innerArray[i] = temp;
+                    swapped = true;
+                }
+            }
+            n--;
+        } while (swapped);
     }
 
 

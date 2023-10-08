@@ -54,7 +54,7 @@ public class ArrayTasks {
         int sum = 0;
         if (arr.length>0){
             for (int i = 0; i < arr.length; i++) {
-                sum = sum+arr[i];
+                sum += arr[i];
             }
         }
         return sum;
@@ -127,8 +127,44 @@ public class ArrayTasks {
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
+        sortOuter(arr);
+        for (int[] innerArray : arr) {
+            sortInner(innerArray);
+        }
+        return arr;
+    }
+    private void sortOuter(int[][] arr) {
+        int len = arr.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 1; i < len; i++) {
+                if (arr[i - 1].length > arr[i].length) {
+                    int[] temp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                    swapped = true;
+                }
+            }
+            len--;
+        } while (swapped);
+    }
 
-        return null;
+    private void sortInner(int[] innerArray) {
+        int len = innerArray.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 1; i < len; i++) {
+                if (innerArray[i - 1] > innerArray[i]) {
+                    int temp = innerArray[i - 1];
+                    innerArray[i - 1] = innerArray[i];
+                    innerArray[i] = temp;
+                    swapped = true;
+                }
+            }
+            len--;
+        } while (swapped);
     }
 
 

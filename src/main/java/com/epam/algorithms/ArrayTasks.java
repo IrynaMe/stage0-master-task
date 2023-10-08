@@ -1,6 +1,7 @@
 package com.epam.algorithms;
 
 
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Here are the tasks for working with the arrays.
@@ -50,13 +51,17 @@ public class ArrayTasks {
      * arr = [1, 3, 5]   -> sum = 9 arr = [5, -3, -4] -> sum = -2
      */
     public int totalSum(int[] arr) {
+        if (arr == null) {
+            throw new IllegalArgumentException("Wrong input");
+        }
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        if (arr.length>0){
+            for (int i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
         }
         return sum;
     }
-
     /**
      * Return the index of the first occurrence of number in the arr array. If there is no such element in the array,
      * return -1.
@@ -105,17 +110,13 @@ public class ArrayTasks {
                 newLen++;
             }
         }
-
         int[] result = new int[newLen];
         int i = 0;
         for (int number : arr) {
             if (number > 0) {
                 result[i++] = number;
-                System.out.print(number);
-
             }
         }
-        System.out.println();
         return result;
     }
 

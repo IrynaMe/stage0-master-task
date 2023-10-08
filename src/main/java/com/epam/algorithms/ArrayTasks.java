@@ -69,8 +69,8 @@ public class ArrayTasks {
     public int findIndexOfNumber(int[] arr, int number) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == number) {
-                System.out.println("Index of number: " + (i+1));
-                return (i+1);
+                System.out.println("Index of number: " + i);
+                return i;
             }
         }
         System.out.println("number not found ");

@@ -1,6 +1,5 @@
 package com.epam.algorithms;
 
-import com.epam.loops.Pyramid;
 
 /**
  * Here are the tasks for working with the arrays.
@@ -13,7 +12,12 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        return new String[]{"Winter", "Spring", "Summer", "Autumn"};
+        String[] seasons = new String[4];
+        seasons[0] = "Winter";
+        seasons[1] = "Spring";
+        seasons[2] = "Summer";
+        seasons[3] = "Autumn";
+        return seasons;
     }
 
     /**
@@ -134,12 +138,5 @@ public class ArrayTasks {
     }
 
 
-    public static void main(String[] args) {
-        ArrayTasks at = new ArrayTasks();
-        int[] result = at.generateNumbers(5);
-        at.totalSum(new int[]{1, 2, 3, 4, 5});
-        at.findIndexOfNumber(new int[]{1, 2, 3, 4, 5}, 5);
-        at.reverseArray(new String[]{"one", "two", "three"});
-        at.getOnlyPositiveNumbers(new int[]{1, 2, -3, 4, 5});
-    }
+
 }

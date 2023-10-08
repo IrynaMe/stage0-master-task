@@ -13,9 +13,7 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        String[] seasons = {"Winter", "Spring", "Summer", "Autumn"};
-        System.out.println(seasons);
-        return seasons;
+        return new String[]{"Winter", "Spring", "Summer", "Autumn"};
     }
 
     /**
@@ -28,17 +26,14 @@ public class ArrayTasks {
      */
     public int[] generateNumbers(int length) {
         if (length <= 0) {
-            System.out.println("length must be a positive number");
-            return null;
-        } else {
-            int[] result = new int[length];
-            for (int i = 0; i < length; i++) {
-                result[i] = i + 1;
-                System.out.print(result[i]);
-            }
-            System.out.println();
-            return result;
+            throw new IllegalArgumentException("wrong length");
         }
+
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = i + 1;
+        }
+        return result;
 
 
     }

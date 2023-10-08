@@ -9,7 +9,11 @@ public class DaysInMonth {
         } else {
             switch (month) {
                 case 2:
-                    System.out.println(isLeapYear ? 29 : 28);
+                   // System.out.println(isLeapYear ? 29 : 28);
+                    if(isLeapYear) System.out.println(29);
+                    else {
+                        System.out.println(28);
+                    }
                     break;
                 case 4:
                 case 6:

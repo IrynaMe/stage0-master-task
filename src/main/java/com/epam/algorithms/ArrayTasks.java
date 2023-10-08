@@ -52,8 +52,8 @@ public class ArrayTasks {
      */
     public int totalSum(int[] arr) {
         int sum = 0;
-        for (int num : arr) {
-            sum += num;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
         System.out.println("Sum: " + sum);
         return sum;
@@ -125,56 +125,6 @@ public class ArrayTasks {
         return result;
     }
 
-    /**
-     * Return a sorted, ragged, two-dimensional int[][] array following these rules: Incoming one-dimensional arrays
-     * must be arranged in ascending order of their length; numbers in all one-dimensional arrays must be in ascending
-     * order.
-     * <p>
-     * Example:
-     * <p>
-     * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
-     */
-    public int[][] sortRaggedArray(int[][] arr) {
-        sortOuter(arr);
-        for (int[] innerArray : arr) {
-            sortInner(innerArray);
-        }
-        return arr;
-    }
-
-    private void sortOuter(int[][] arr) {
-        int n = arr.length;
-        boolean swapped;
-        do {
-            swapped = false;
-            for (int i = 1; i < n; i++) {
-                if (arr[i - 1].length > arr[i].length) {
-                    int[] temp = arr[i - 1];
-                    arr[i - 1] = arr[i];
-                    arr[i] = temp;
-                    swapped = true;
-                }
-            }
-            n--;
-        } while (swapped);
-    }
-
-    private void sortInner(int[] innerArray) {
-        int n = innerArray.length;
-        boolean swapped;
-        do {
-            swapped = false;
-            for (int i = 1; i < n; i++) {
-                if (innerArray[i - 1] > innerArray[i]) {
-                    int temp = innerArray[i - 1];
-                    innerArray[i - 1] = innerArray[i];
-                    innerArray[i] = temp;
-                    swapped = true;
-                }
-            }
-            n--;
-        } while (swapped);
-    }
 
 
 

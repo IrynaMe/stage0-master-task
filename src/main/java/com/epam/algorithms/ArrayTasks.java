@@ -33,7 +33,6 @@ public class ArrayTasks {
         if (length <= 0) {
             throw new IllegalArgumentException("wrong length");
         }
-
         int[] result = new int[length];
         for (int i = 0; i < length; i++) {
             result[i] = i + 1;
@@ -55,7 +54,6 @@ public class ArrayTasks {
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
-        System.out.println("Sum: " + sum);
         return sum;
     }
 
@@ -70,11 +68,9 @@ public class ArrayTasks {
     public int findIndexOfNumber(int[] arr, int number) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == number) {
-                System.out.println("Index of number: " + i);
                 return i;
             }
         }
-        System.out.println("number not found ");
         return -1;
     }
 
@@ -90,9 +86,7 @@ public class ArrayTasks {
         String[] result = new String[arr.length];
         for (int i = 0, j = arr.length - 1; i < arr.length; i++, j--) {
             result[i] = arr[j];
-            System.out.print(result[i]+" ");
         }
-        System.out.println();
         return result;
     }
 
